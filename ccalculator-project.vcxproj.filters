@@ -24,13 +24,22 @@
     <ClCompile Include="ansoperations.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="ansnum.h">
       <Filter>Header Files</Filter>
+=======
+    <ClCompile Include="ansoperations.c">
+      <Filter>Source Files</Filter>
+>>>>>>> Stashed changes
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ansoperations.h">
+<<<<<<< Updated upstream
       <Filter>Header Files</Filter>
+=======
+      <Filter>Source Files</Filter>
+>>>>>>> Stashed changes
     </ClInclude>
   </ItemGroup>
 </Project>
