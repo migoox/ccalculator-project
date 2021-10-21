@@ -1,2 +1,14 @@
-﻿  main.c
-  ccalculator-project.vcxproj -> C:\Users\migox\source\repos\ccalculator-project\Debug\ccalculator-project.exe
+﻿  ansoperations.c
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(20,19): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(20,37): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(25,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(27,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(54,20): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(54,38): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(59,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(61,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(67,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(77,18): warning C4018: '>': signed/unsigned mismatch
+  main.c
+  Generating Code...
+  ccalculator-project.vcxproj -> C:\Users\Michał\Documents\GitHub\ccalculator-project\Debug\ccalculator-project.exe

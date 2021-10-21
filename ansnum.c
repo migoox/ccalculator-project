@@ -114,6 +114,7 @@ void ANS_print(ANS_Num* n)
 		printf("%c", n->string[n->size - i - 1]);
 	}
 	printf("|%d", n->numeral_system);
+	printf("\n");
 }
 
 int ANS_chr_toint(char c)

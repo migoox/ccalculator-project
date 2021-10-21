@@ -18,16 +18,19 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ansnum.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ansnum.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ansoperations.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ansnum.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="operations.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="ansoperations.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
