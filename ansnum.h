@@ -30,14 +30,18 @@ char ANS_getat(ANS_Num* n, size_t index);
 void ANS_setat(ANS_Num* n, size_t index, char new_digit);
 
 // push digit at front of the number(in memory number is reversed, so this function pushes digit back)
-void ANS_push(ANS_Num* n, char digit);
+void ANS_push_front(ANS_Num* n, char digit);
 
 void ANS_pop(ANS_Num* n);
 
 void ANS_print(ANS_Num* n);
 
+void ANS_cpy(ANS_Num* n1, ANS_Num* n2);
+
 int ANS_chr_toint(char c);
 
 char ANS_int_tochr(int digit);
+
+bool ANS_is_equal(ANS_Num* num1, ANS_Num* num2);
 
 #endif

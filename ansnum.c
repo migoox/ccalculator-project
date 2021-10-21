@@ -46,10 +46,10 @@ void ANS_init_str(ANS_Num* n, const char* num_str, short num_sys)
 
 void ANS_delete(ANS_Num* n)
 {
+	free(n->string);
 	n->capacity = 0;
 	n->size = 0;
 	n->numeral_system = 10;
-	free(n->string);
 }
 
 void ANS_clear(ANS_Num* n)
@@ -91,11 +91,14 @@ void ANS_setat(ANS_Num* n, size_t index, char new_digit)
 	n->string[index] = new_digit;
 }
 
-void ANS_push(ANS_Num* n, char digit)
+void ANS_push_front(ANS_Num* n, char digit)
 {
 	if (n->size + 1 >= n->capacity)
 	{
-		size_t new_capacity = n->capacity + n->capacity / 2;
+		size_t new_capacity = n->capacity + n->capacity / 2 + 1;
+		if (n->size <= 0)
+			new_capacity = 2;
+
 		ANS_change_capacity(n, new_capacity);
 	}
 
@@ -115,6 +118,51 @@ void ANS_print(ANS_Num* n)
 	}
 	printf("|%d", n->numeral_system);
 	printf("\n");
+}
+
+void ANS_cpy(ANS_Num* n1, ANS_Num* n2)
+{
+	if (n2->size == n1->size)
+	{
+		for (int i = 0; i < n1->size; i++)
+		{
+			n2->string[i] = n1->string[i];
+		}
+	}
+	else if (n2->size > n1->size)
+	{
+		ANS_clear(n2);
+		for (int i = 0; i < n1->size; i++)
+		{
+			n2->string[i] = n1->string[i];
+		}
+	}
+	else
+	{
+		if (n2->capacity < n1->size)
+		{
+			// realloc
+			if (n2->size > 0)
+				ANS_delete(n2);
+
+			ANS_init_cap(n2, n1->capacity, n1->numeral_system);
+
+			for (int i = 0; i < n1->size; i++)
+			{
+				n2->string[i] = n1->string[i];
+			}
+		}
+		else
+		{
+			for (int i = 0; i < n1->size; i++)
+			{
+				n2->string[i] = n1->string[i];
+			}
+		}
+	}
+
+	n2->numeral_system = n1->numeral_system;
+	n2->size = n1->size;
 }
 
 int ANS_chr_toint(char c)
@@ -139,7 +187,7 @@ int ANS_chr_toint(char c)
 		incorrect_digit = true;
 	}
 
-	assert(!incorrect_digit && "AnyDigitToDecInt error: Imposible to convert char digit to decimal integer, incorrect input.");
+	assert(!incorrect_digit && "ANS_chr_toint error: Imposible to convert char digit to decimal integer, incorrect input.");
 
 	return i;
 }
@@ -162,7 +210,41 @@ char ANS_int_tochr(int digit)
 		incorrect_digit = true;
 	}
 
-	assert(!incorrect_digit && "AnyDigitToDecInt error: Imposible to convert char digit to decimal integer, incorrect input.");
+	assert(!incorrect_digit && "ANS_int_tochr error: Imposible to convert char digit to decimal integer, incorrect input.");
 
 	return c;
+}
+
+bool ANS_is_equal(ANS_Num* num1, ANS_Num* num2)
+{
+	ANS_Num* short_num;
+	ANS_Num* long_num;
+
+	if (num1->size > num2->size)
+	{
+		short_num = num2;
+		long_num = num1;
+	}
+	else
+	{
+		short_num = num1;
+		long_num = num2;
+	}
+
+	for (int i = 0, j = 0; i < long_num->size; i++, j++)
+	{
+		if (j >= short_num->size)
+		{
+			if (ANS_getat(long_num, i) != '0')
+				return false;
+		}
+		else
+		{
+
+			if (ANS_getat(short_num, j) != ANS_getat(long_num, i))
+				return false;
+		}
+	}
+
+	return true;
 }

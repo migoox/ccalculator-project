@@ -1,14 +1,10 @@
-﻿  ansoperations.c
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(20,19): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(20,37): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(25,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(27,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(54,20): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(54,38): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(59,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(61,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(67,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(77,18): warning C4018: '>': signed/unsigned mismatch
-  main.c
-  Generating Code...
-  ccalculator-project.vcxproj -> C:\Users\Michał\Documents\GitHub\ccalculator-project\Debug\ccalculator-project.exe
+﻿  ansnum.c
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(17,27): warning C4013: 'calloc' undefined; assuming extern returning int
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(49,6): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(127,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(135,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(150,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(157,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(234,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(236,9): warning C4018: '>=': signed/unsigned mismatch
+  ccalculator-project.vcxproj -> C:\Users\migox\source\repos\ccalculator-project\Debug\ccalculator-project.exe
