@@ -14,7 +14,7 @@ void ANS_init_cap(ANS_Num* n, size_t cap, short num_sys)
 	n->size = 0;
 	n->numeral_system = num_sys;
 
-	n->string = (char*)calloc(cap * sizeof(char));
+	n->string = (char*)malloc(cap * sizeof(char));
 }
 
 void ANS_init_str(ANS_Num* n, const char* num_str, short num_sys)
@@ -38,7 +38,7 @@ void ANS_init_str(ANS_Num* n, const char* num_str, short num_sys)
 	n->size = size;
 	n->numeral_system = num_sys;
 
-	n->string = (char*)calloc(size * sizeof(char));
+	n->string = (char*)malloc(size * sizeof(char));
 
 	for (size_t i = size - 1, j = 0; j < size; i--, j++)
 		n->string[i] = num_str[j];
@@ -65,11 +65,12 @@ void ANS_change_capacity(ANS_Num* n, size_t new_cap)
 	if (new_cap == n->capacity)
 		return;
 
-	char* new_ptr = (char*)calloc(new_cap * sizeof(char));
+	char* new_ptr = (char*)malloc(new_cap * sizeof(char));
 	for (size_t i = 0; i < n->size; i++)
 	{
 		if (n->size > new_cap)
 		{
+			printf("test\n");
 			n->size = new_cap;
 			break;
 		}
