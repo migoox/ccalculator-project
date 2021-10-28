@@ -1,7 +1,22 @@
-﻿  main.c
-C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(20,29): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char (*)[1000]'
-C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(20,21): warning C4024: 'ANS_init_str': different types for formal and actual parameter 2
-C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(24,30): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char (*)[1000]'
-C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(24,22): warning C4024: 'ANS_init_str': different types for formal and actual parameter 2
-C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(61): warning C4717: 'main': recursive on all control paths, function will cause runtime stack overflow
+﻿  ansoperations.c
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(8,19): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(13,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(21,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(31,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(53,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(58,9): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(100,20): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(100,38): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(105,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(107,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(132,20): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(132,38): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(137,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(139,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(145,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(155,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(189,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(195,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(211,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(217,15): warning C4018: '<': signed/unsigned mismatch
   ccalculator-project.vcxproj -> C:\Users\Michał\Documents\GitHub\ccalculator-project\Debug\ccalculator-project.exe

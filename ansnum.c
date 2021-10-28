@@ -82,6 +82,33 @@ void ANS_change_capacity(ANS_Num* n, size_t new_cap)
 	n->string = new_ptr;
 }
 
+void ANS_resize(ANS_Num* n, size_t new_size)
+{
+	if (new_size == 0 || new_size == n->size)
+		return;
+
+	if (new_size < n->size)
+	{
+		n->size = new_size;
+	}
+	else
+	{
+		if (new_size > n->capacity)
+		{
+			ANS_change_capacity(n, new_size);
+		}
+		else
+		{
+			for (int i = n->size; i < new_size; i++)
+			{
+				n->string[i] = '0';
+			}
+			n->size = new_size;
+		}
+	}
+
+}
+
 char ANS_getat(ANS_Num* n, size_t index)
 {
 	return n->string[index];

@@ -1,4 +1,5 @@
 #include "ansnum.h"
+#include "ansoperations.h"
 
 void ANS_increment(ANS_Num* num)
 {
@@ -32,6 +33,51 @@ void ANS_increment(ANS_Num* num)
 		else
 			ANS_push_front(num, ANS_int_tochr(carry));
 	}
+}
+
+void ANS_sub(ANS_Num* num1, ANS_Num* num2)
+{
+	assert(num1->numeral_system == num2->numeral_system && "ANS_sum error: cannot sub numbers in different numeral systems.");
+	
+	if (num1->size < num2->size)
+	{
+		ANS_delete(num1);
+		
+		ANS_init_str(num1, "0", num2->numeral_system);
+
+		return;
+	}
+	
+	bool loan = false;
+
+	for (int i = 0; i < num1->size; i++)
+	{
+		int digit1 = ANS_chr_toint(num1->string[i]);
+		int digit2 = 0;
+
+		if (i < num2->size)
+			digit2 = ANS_chr_toint(num2->string[i]);
+
+		int result = digit1 - digit2;
+
+		if (loan)
+			result--;
+
+		if (result < 0)
+		{
+			result += num1->numeral_system;
+			loan = true;
+		}
+
+		ANS_setat(num1, i, ANS_int_tochr(result));
+	}
+
+	if (ANS_chr_toint(num1->string[num1->size - 1]) > ANS_chr_toint(num2->string[num2->size - 1]))
+	{
+		ANS_resize(num1, 1);
+		ANS_clear(num1);
+	}
+
 }
 
 void ANS_sum_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)

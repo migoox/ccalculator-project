@@ -3,10 +3,9 @@
 #include "ansnum.h"
 #include "ansoperations.h"
 
-
 int main()
 {
-	int numeral_system = 13;
+	int numeral_system = 10;
 	char num1str[1000], num2str[1000];
 
 	printf("Number 1: ");
@@ -24,7 +23,9 @@ int main()
 	ANS_init_str(&num2, &num2str, numeral_system);
 	ANS_print(&num2);
 	printf("\n");
-	ANS_Num container;
+
+
+	/*ANS_Num container;
 	ANS_init_blank(&container);
 
 	ANS_sum_withc(&num, &num2, &container);
@@ -48,7 +49,10 @@ int main()
 	ANS_print(&container);
 
 	ANS_delete(&container);
-
+	*/
+	printf("sub: ");
+	ANS_sub(&num, &num2);
+	ANS_print(&num);
 
 	ANS_delete(&num);
 	ANS_delete(&num2);

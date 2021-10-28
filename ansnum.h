@@ -25,6 +25,8 @@ void ANS_clear(ANS_Num* n);
 
 void ANS_change_capacity(ANS_Num* n, size_t new_cap);
 
+void ANS_resize(ANS_Num* n, size_t new_size);
+
 char ANS_getat(ANS_Num* n, size_t index);
 
 void ANS_setat(ANS_Num* n, size_t index, char new_digit);
