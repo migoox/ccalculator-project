@@ -6,7 +6,7 @@
 
 int main()
 {
-	int numeral_system = 10;
+	int numeral_system = 13;
 	char num1str[1000], num2str[1000];
 
 	printf("Number 1: ");

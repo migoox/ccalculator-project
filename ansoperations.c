@@ -1,4 +1,38 @@
-#include "ansoperations.h"
+#include "ansnum.h"
+
+void ANS_increment(ANS_Num* num)
+{
+	int carry = 0;
+	int i = 0;
+	while (num->size > i)
+	{
+		int digit1 = 0;
+		int digit2 = 0;
+
+		if (num->size > i)
+			digit1 = ANS_chr_toint(num->string[i]);
+		if (i == 0)
+			digit2 = 1;
+
+		int new_digit = (digit1 + digit2 + carry) % num->numeral_system;
+		carry = (digit1 + digit2 + carry) / num->numeral_system;
+
+		if (num->size > i)
+			ANS_setat(num, i, ANS_int_tochr(new_digit));
+		else
+			ANS_push_front(num, ANS_int_tochr(new_digit));
+
+		i++;
+	}
+
+	if (carry > 0)
+	{
+		if (num->size > i + 1)
+			ANS_setat(num, i, ANS_int_tochr(carry));
+		else
+			ANS_push_front(num, ANS_int_tochr(carry));
+	}
+}
 
 void ANS_sum_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 {
@@ -209,37 +243,4 @@ void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 
 }
 
-void ANS_increment(ANS_Num* num)
-{
-	int carry = 0;
-	int i = 0;
-	while (num->size > i)
-	{
-		int digit1 = 0;
-		int digit2 = 0;
-
-		if (num->size > i)
-			digit1 = ANS_chr_toint(num->string[i]);
-		if (i == 0)
-			digit2 = 1;
-
-		int new_digit = (digit1 + digit2 + carry) % num->numeral_system;
-		carry = (digit1 + digit2 + carry) / num->numeral_system;
-
-		if (num->size > i)
-			ANS_setat(num, i, ANS_int_tochr(new_digit));
-		else
-			ANS_push_front(num, ANS_int_tochr(new_digit));
-
-		i++;
-	}
-
-	if (carry > 0)
-	{
-		if (num->size > i + 1)
-			ANS_setat(num, i, ANS_int_tochr(carry));
-		else
-			ANS_push_front(num, ANS_int_tochr(carry));
-	}
-}
 

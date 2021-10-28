@@ -1,7 +1,7 @@
 ﻿  main.c
-C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(20,29): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char (*)[1000]'
-C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(20,21): warning C4024: 'ANS_init_str': different types for formal and actual parameter 2
-C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(24,30): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char (*)[1000]'
-C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(24,22): warning C4024: 'ANS_init_str': different types for formal and actual parameter 2
-C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(61): warning C4717: 'main': recursive on all control paths, function will cause runtime stack overflow
-  ccalculator-project.vcxproj -> C:\Users\migox\source\repos\ccalculator-project\Debug\ccalculator-project.exe
+C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(20,29): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char (*)[1000]'
+C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(20,21): warning C4024: 'ANS_init_str': different types for formal and actual parameter 2
+C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(24,30): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char (*)[1000]'
+C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(24,22): warning C4024: 'ANS_init_str': different types for formal and actual parameter 2
+C:\Users\Michał\Documents\GitHub\ccalculator-project\main.c(61): warning C4717: 'main': recursive on all control paths, function will cause runtime stack overflow
+  ccalculator-project.vcxproj -> C:\Users\Michał\Documents\GitHub\ccalculator-project\Debug\ccalculator-project.exe
