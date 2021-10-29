@@ -82,9 +82,15 @@ void ANS_change_capacity(ANS_Num* n, size_t new_cap)
 	n->string = new_ptr;
 }
 
+void ANS_reset(ANS_Num* n)
+{
+	ANS_resize(n, 1);
+	n->string[0] = '0';
+}
+
 void ANS_resize(ANS_Num* n, size_t new_size)
 {
-	if (new_size == 0 || new_size == n->size)
+	if (new_size == n->size)
 		return;
 
 	if (new_size < n->size)
@@ -107,6 +113,17 @@ void ANS_resize(ANS_Num* n, size_t new_size)
 		}
 	}
 
+}
+
+void ANS_reverse(ANS_Num* n)
+{
+	char temp;
+	for (int i = 0, j = n->size - 1; i < j; i++, j--)
+	{
+		temp = n->string[i];
+		n->string[i] = n->string[j];
+		n->string[j] = temp;
+	}
 }
 
 char ANS_getat(ANS_Num* n, size_t index)
@@ -191,6 +208,21 @@ void ANS_cpy(ANS_Num* n1, ANS_Num* n2)
 
 	n2->numeral_system = n1->numeral_system;
 	n2->size = n1->size;
+}
+
+void ANS_fix(ANS_Num* n)
+{
+	int i;
+
+	for (i = n->size - 1; i > 0; i--)
+	{
+		if (n->string[i] != '0')
+		{
+			break;
+		}
+	}
+
+	ANS_resize(n, i + 1);
 }
 
 int ANS_chr_toint(char c)

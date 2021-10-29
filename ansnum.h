@@ -25,7 +25,11 @@ void ANS_clear(ANS_Num* n);
 
 void ANS_change_capacity(ANS_Num* n, size_t new_cap);
 
+void ANS_reset(ANS_Num* n);
+
 void ANS_resize(ANS_Num* n, size_t new_size);
+
+void ANS_reverse(ANS_Num* n);
 
 char ANS_getat(ANS_Num* n, size_t index);
 
@@ -39,6 +43,8 @@ void ANS_pop(ANS_Num* n);
 void ANS_print(ANS_Num* n);
 
 void ANS_cpy(ANS_Num* n1, ANS_Num* n2);
+
+void ANS_fix(ANS_Num* n);
 
 int ANS_chr_toint(char c);
 
