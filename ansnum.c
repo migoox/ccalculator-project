@@ -55,9 +55,7 @@ void ANS_delete(ANS_Num* n)
 void ANS_clear(ANS_Num* n)
 {
 	for (size_t i = 0; i < n->size; i++)
-	{
 		n->string[i] = '0';
-	}
 }
 
 void ANS_change_capacity(ANS_Num* n, size_t new_cap)
@@ -70,7 +68,6 @@ void ANS_change_capacity(ANS_Num* n, size_t new_cap)
 	{
 		if (n->size > new_cap)
 		{
-			printf("test\n");
 			n->size = new_cap;
 			break;
 		}
@@ -155,16 +152,6 @@ void ANS_pop(ANS_Num* n)
 	n->string[n->size--] = '0';
 }
 
-void ANS_print(ANS_Num* n)
-{
-	for (size_t i = 0; i < n->size; i++)
-	{
-		printf("%c", n->string[n->size - i - 1]);
-	}
-	printf("|%d", n->numeral_system);
-	printf("\n");
-}
-
 void ANS_cpy(ANS_Num* n1, ANS_Num* n2)
 {
 	if (n2->size == n1->size)
@@ -213,14 +200,9 @@ void ANS_cpy(ANS_Num* n1, ANS_Num* n2)
 void ANS_fix(ANS_Num* n)
 {
 	int i;
-
 	for (i = n->size - 1; i > 0; i--)
-	{
 		if (n->string[i] != '0')
-		{
 			break;
-		}
-	}
 
 	ANS_resize(n, i + 1);
 }
@@ -228,24 +210,16 @@ void ANS_fix(ANS_Num* n)
 int ANS_chr_toint(char c)
 {
 	int i;
-
 	bool incorrect_digit = false;
+
 	if (c >= '0' && c <= '9')
-	{
 		i = c - '0';
-	}
 	else if (c >= 'A' && c <= 'F')
-	{
 		i = c - 'A' + 10;
-	}
 	else if (c >= 'a' && c <= 'f')
-	{
 		i = c - 'a' + 10;
-	}
 	else
-	{
 		incorrect_digit = true;
-	}
 
 	assert(!incorrect_digit && "ANS_chr_toint error: Imposible to convert char digit to decimal integer, incorrect input.");
 
@@ -255,20 +229,14 @@ int ANS_chr_toint(char c)
 char ANS_int_tochr(int digit)
 {
 	char c;
-
 	bool incorrect_digit = false;
+
 	if (digit >= 0 && digit <= 9)
-	{
 		c = digit + '0';
-	}
 	else if (digit >= 10 && digit <= 15)
-	{
 		c = digit + 'A' - 10;
-	}
 	else
-	{
 		incorrect_digit = true;
-	}
 
 	assert(!incorrect_digit && "ANS_int_tochr error: Imposible to convert char digit to decimal integer, incorrect input.");
 

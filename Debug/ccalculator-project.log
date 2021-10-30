@@ -1,3 +1,39 @@
-﻿  main.c
-C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(21,8): warning C4013: 'memset' undefined; assuming extern returning int
+﻿  ansnum.c
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(17,27): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(49,6): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(105,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(159,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(167,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(182,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(189,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(262,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansnum.c(264,9): warning C4018: '>=': signed/unsigned mismatch
+  ansoperations.c
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(74,19): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(80,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(90,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(100,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(123,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(129,9): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(182,20): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(182,38): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(187,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(189,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(214,20): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(214,38): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(219,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(221,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(227,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(237,18): warning C4018: '>': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(295,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(301,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(320,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\ansoperations.c(327,15): warning C4018: '<': signed/unsigned mismatch
+  main.c
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(111,26): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(122,24): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(179,26): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(181,24): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+  Generating Code...
+Debug\ansnum.obj : warning LNK4042: object specified more than once; extras ignored
   ccalculator-project.vcxproj -> C:\Users\migox\source\repos\ccalculator-project\Debug\ccalculator-project.exe
