@@ -50,7 +50,7 @@ int main()
 		strncpy(result_file_name, file_name, strlen(file_name));
 		result_file_name[strlen(file_name)] = '\0';
 
-		strcat(file_name, ".txt\0");
+		strcat(file_name, ".txt\0");\
 		strcat(result_file_name, "_result.txt\0");
 
 		// open files
@@ -77,7 +77,7 @@ int main()
 				// get current operation
 				fprintf(ofile, "%c", operation);
 
-				if (operation == '+' || operation == '*' || operation == '/' || operation == '^')
+				if (operation == '+' || operation == '*' || operation == '/' || operation == '%' || operation == '^')
 				{
 					// arithmetic operations
 
@@ -127,6 +127,8 @@ int main()
 						ANS_mult_withc(&num1, &num2, &result);
 					else if (operation == '/')
 						ANS_divide_withc(&num1, &num2, &result);
+					else if (operation == '%')
+						ANS_modulo_withc(&num1, &num2, &result);
 					else
 						ANS_pow_withc(&num1, &num2, &result);
 

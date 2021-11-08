@@ -1,68 +1,6 @@
 #include "ansnum.h"
 #include "ansoperations.h"
 
-void ANS_convert(ANS_Num* num, short numeral_system)
-{
-	if (num->numeral_system == numeral_system)
-		return;
-
-	assert((numeral_system <= 16 && numeral_system >= 2) && "ANS_convert error: numeral system isn't right(should be between 2 and 16)");
-
-	// required containers
-	ANS_Num mult;
-	ANS_Num result;
-	ANS_Num helper;
-	ANS_Num curr_digit;
-
-	int digit = 0;
-	int rest = 0;
-
-	// init containers
-	ANS_init_str(&mult, "0", numeral_system);
-	ANS_init_str(&result, "0", numeral_system);
-	ANS_init_cap(&helper, 2, numeral_system);
-	ANS_init_cap(&curr_digit, 2, numeral_system);
-
-	// prepare multiplier
-	for (int i = 0; i < num->numeral_system; i++)
-	{
-		ANS_increment(&mult);
-	}
-
-	// main loop
-	for (int i = num->size - 1; i >= 0; i--)
-	{
-		ANS_mult_withc(&result, &mult, &helper);
-
-		// convert current digit to number in output numeral system and sum it
-		digit = ANS_chr_toint(ANS_getat(num, i));
-		rest = 0;
-		while (digit > 0)
-		{
-			rest = digit % numeral_system;
-			digit = digit / numeral_system;
-			ANS_push_front(&curr_digit, ANS_int_tochr(rest));
-		}
-		ANS_sum(&helper, &curr_digit);
-
-		// copy content from helper container to result
-		ANS_cpy(&helper, &result);
-		ANS_resize(&curr_digit, 0);
-	}
-
-	// copy content of result to given number container
-	ANS_delete(num);
-	ANS_init_blank(num);
-	ANS_fix(&result);
-	ANS_cpy(&result, num);
-
-	// free memory
-	ANS_delete(&mult);
-	ANS_delete(&result);
-	ANS_delete(&helper);
-	ANS_delete(&curr_digit);
-}
-
 void ANS_increment(ANS_Num* num)
 {
 	int carry = 0;
@@ -102,61 +40,6 @@ void ANS_increment(ANS_Num* num)
 		else
 			ANS_push_front(num, ANS_int_tochr(carry));
 	}
-}
-
-bool ANS_sub(ANS_Num* num1, ANS_Num* num2)
-{
-	assert(num1->numeral_system == num2->numeral_system && "ANS_sum error: cannot sub numbers in different numeral systems.");
-	
-	bool loan = false;
-	int digit1;
-	int digit2;
-	int result;
-
-	if (num1->size < num2->size)
-	{
-		// second number is bigger than the first one, return 0
-		ANS_reset(num1);
-		return false;
-	}
-
-	for (int i = 0; i < num1->size; i++)
-	{
-		// prepare digits
-		digit1 = ANS_chr_toint(num1->string[i]);
-		digit2 = 0;
-
-		if (i < num2->size)
-			digit2 = ANS_chr_toint(num2->string[i]);
-
-		// count result
-		result = digit1 - digit2;
-
-		if (loan)
-			result--;
-
-		if (result < 0)
-		{
-			result += num1->numeral_system;
-			loan = true;
-		}
-		else
-			loan = false;
-
-		// set digit
-		ANS_setat(num1, i, ANS_int_tochr(result));
-	}
-
-	if (loan)
-	{
-		// second number is bigger than the first one, return 0
-		ANS_reset(num1);
-		return false;
-	}
-	
-	ANS_fix(num1);
-
-	return true;
 }
 
 void ANS_sum_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
@@ -360,6 +243,123 @@ void ANS_mult_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 	}
 }
 
+void ANS_convert(ANS_Num* num, short numeral_system)
+{
+	if (num->numeral_system == numeral_system)
+		return;
+
+	assert((numeral_system <= 16 && numeral_system >= 2) && "ANS_convert error: numeral system isn't right(should be between 2 and 16)");
+
+	// required containers
+	ANS_Num mult;
+	ANS_Num result;
+	ANS_Num helper;
+	ANS_Num curr_digit;
+
+	int digit = 0;
+	int rest = 0;
+
+	// init containers
+	ANS_init_str(&mult, "0", numeral_system);
+	ANS_init_str(&result, "0", numeral_system);
+	ANS_init_cap(&helper, 2, numeral_system);
+	ANS_init_cap(&curr_digit, 2, numeral_system);
+
+	// prepare multiplier
+	for (int i = 0; i < num->numeral_system; i++)
+	{
+		ANS_increment(&mult);
+	}
+
+	// main loop
+	for (int i = num->size - 1; i >= 0; i--)
+	{
+		ANS_mult_withc(&result, &mult, &helper);
+
+		// convert current digit to number in output numeral system and sum it
+		digit = ANS_chr_toint(ANS_getat(num, i));
+		rest = 0;
+		while (digit > 0)
+		{
+			rest = digit % numeral_system;
+			digit = digit / numeral_system;
+			ANS_push_front(&curr_digit, ANS_int_tochr(rest));
+		}
+		ANS_sum(&helper, &curr_digit);
+
+		// copy content from helper container to result
+		ANS_cpy(&helper, &result);
+		ANS_resize(&curr_digit, 0);
+	}
+
+	// copy content of result to given number container
+	ANS_delete(num);
+	ANS_init_blank(num);
+	ANS_fix(&result);
+	ANS_cpy(&result, num);
+
+	// free memory
+	ANS_delete(&mult);
+	ANS_delete(&result);
+	ANS_delete(&helper);
+	ANS_delete(&curr_digit);
+}
+
+bool ANS_sub(ANS_Num* num1, ANS_Num* num2)
+{
+	assert(num1->numeral_system == num2->numeral_system && "ANS_sum error: cannot sub numbers in different numeral systems.");
+	
+	bool loan = false;
+	int digit1;
+	int digit2;
+	int result;
+
+	if (num1->size < num2->size)
+	{
+		// second number is bigger than the first one, return 0
+		ANS_reset(num1);
+		return false;
+	}
+
+	for (int i = 0; i < num1->size; i++)
+	{
+		// prepare digits
+		digit1 = ANS_chr_toint(num1->string[i]);
+		digit2 = 0;
+
+		if (i < num2->size)
+			digit2 = ANS_chr_toint(num2->string[i]);
+
+		// count result
+		result = digit1 - digit2;
+
+		if (loan)
+			result--;
+
+		if (result < 0)
+		{
+			result += num1->numeral_system;
+			loan = true;
+		}
+		else
+			loan = false;
+
+		// set digit
+		ANS_setat(num1, i, ANS_int_tochr(result));
+	}
+
+	if (loan)
+	{
+		// second number is bigger than the first one, return 0
+		ANS_reset(num1);
+		return false;
+	}
+	
+	ANS_fix(num1);
+
+	return true;
+}
+
 void ANS_pow_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 {
 	assert(num1->numeral_system == num2->numeral_system && "ANS_sum error: cannot add numbers in different numeral systems.");
@@ -414,6 +414,31 @@ void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 	while (!(num1cpy.size == 1 && num1cpy.string[0] == '0'))
 		if (ANS_sub(&num1cpy, num2))
 			ANS_increment(container);
+
+	ANS_delete(&num1cpy);
+}
+
+void ANS_modulo_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
+{
+	assert(num1->numeral_system == num2->numeral_system && "ANS_divide_withc error: cannot add numbers in different numeral systems.");
+	assert(!(num2->size == 1 && num2->string[0] == '0') && "ANS_divide_withc error: cannot divide by zero.");
+
+	ANS_Num num1cpy;
+
+	if (container->size > 0)
+		ANS_delete(container);
+
+	ANS_init_str(container, "0", num1->numeral_system);
+	ANS_init_blank(&num1cpy);
+	ANS_cpy(num1, &num1cpy);
+
+	while (!(num1cpy.size == 1 && num1cpy.string[0] == '0'))
+	{
+		if (ANS_sub(&num1cpy, num2))
+		{
+			ANS_cpy(&num1cpy, container);
+		}
+	}
 
 	ANS_delete(&num1cpy);
 }

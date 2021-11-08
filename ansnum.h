@@ -61,5 +61,4 @@ int ANS_chr_toint(char c);
 
 char ANS_int_tochr(int digit);
 
-
 #endif
