@@ -400,6 +400,7 @@ void ANS_pow_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 {
 	assert(num1->numeral_system == num2->numeral_system && "ANS_divide_withc error: cannot add numbers in different numeral systems.");
+
 	assert(!(num2->size == 1 && num2->string[0] == '0') && "ANS_divide_withc error: cannot divide by zero.");
 
 	ANS_Num num1cpy;
