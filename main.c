@@ -62,7 +62,7 @@ int main()
 		file_error = false;
 
 		// choosing the file
-		printf("Calculator: Enter file name(without extension) or type \".\" to shut down the program.\n>>");
+		printf("Calculator: Enter txt file name(without extension) or type \".\" to shut down the program.\n>>");
 		scanf("%s", file_name);
 
 		// exit case
