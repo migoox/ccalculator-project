@@ -149,7 +149,7 @@ int main()
 					// check errors
 					if (numeral_system1 > 16 || numeral_system1 < 2)
 					{
-						strcpy(operation_error_msg, "ERROR: Numeral system should be between 2 and 16(both inclusive)");
+						strcpy(operation_error_msg, "ERROR: Invalid numeral system");
 						operation_error = true;
 					}
 					else
@@ -265,7 +265,7 @@ int main()
 					// error checking
 					if (numeral_system1 > 16 || numeral_system1 < 2 || numeral_system2 > 16 || numeral_system2 < 2)
 					{
-						strcpy(operation_error_msg, "ERROR: Numeral system should be between 2 and 16(both inclusive)");
+						strcpy(operation_error_msg, "ERROR: Invalid numeral system");
 						operation_error = true;
 					}
 					else
