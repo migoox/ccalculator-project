@@ -1,22 +1,9 @@
-﻿  ansoperations.c
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(11,19): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(17,17): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(27,17): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(37,17): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(64,20): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(64,38): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(69,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(71,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(96,20): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(96,38): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(101,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(103,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(109,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(119,18): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(177,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(183,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(202,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(209,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(323,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Michał\Documents\GitHub\ccalculator-project\ansoperations.c(329,9): warning C4018: '<': signed/unsigned mismatch
-  ccalculator-project.vcxproj -> C:\Users\Michał\Documents\GitHub\ccalculator-project\Debug\ccalculator-project.exe
+﻿  main.c
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(193,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(205,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(226,24): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(240,22): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(309,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(321,24): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+C:\Users\migox\source\repos\ccalculator-project\ccalculator-project\main.c(324,22): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+  ccalculator-project.vcxproj -> C:\Users\migox\source\repos\ccalculator-project\Debug\ccalculator-project.exe
