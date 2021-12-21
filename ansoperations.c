@@ -411,11 +411,12 @@ void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 	ANS_init_str(container, "0", num1->numeral_system);
 	ANS_init_blank(&num1cpy);
 	ANS_cpy(num1, &num1cpy);
-
+	printf("\n");
 	while (!(num1cpy.size == 1 && num1cpy.string[0] == '0'))
+	{
 		if (ANS_sub(&num1cpy, num2))
 			ANS_increment(container);
-
+	}
 	ANS_delete(&num1cpy);
 }
 

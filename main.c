@@ -190,7 +190,7 @@ bool do_operation(FILE* input_file, FILE* output_file, int operation_counter)
 		}
 		else
 		{
-			for (int i = 0; i < num1.size; i++)
+			for (size_t i = 0; i < num1.size; i++)
 			{
 				int digit = ANS_chr_toint(ANS_getat(&num1, i));
 				if (!(digit >= 0 && digit < num1.numeral_system))
@@ -202,7 +202,7 @@ bool do_operation(FILE* input_file, FILE* output_file, int operation_counter)
 
 			if (!operation_error)
 			{
-				for (int i = 0; i < num2.size; i++)
+				for (size_t i = 0; i < num2.size; i++)
 				{
 					int digit = ANS_chr_toint(ANS_getat(&num2, i));
 					if (!(digit >= 0 && digit < num2.numeral_system))
@@ -223,7 +223,7 @@ bool do_operation(FILE* input_file, FILE* output_file, int operation_counter)
 		}
 
 		// do operations
-		clock_start = clock();
+		clock_start = (float)clock();
 		if (!operation_error)
 		{
 			if (current_operation == '+')
@@ -237,7 +237,7 @@ bool do_operation(FILE* input_file, FILE* output_file, int operation_counter)
 			else
 				ANS_pow_withc(&num1, &num2, &result);
 		}
-		clock_end = clock();
+		clock_end = (float)clock();
 
 		elapsed_time = (float)(clock_end - clock_start) / CLOCKS_PER_SEC;
 		printf(" elapsed time: %f seconds.\n", elapsed_time);
@@ -306,7 +306,7 @@ bool do_operation(FILE* input_file, FILE* output_file, int operation_counter)
 		}
 		else
 		{
-			for (int i = 0; i < num.size; i++)
+			for (size_t i = 0; i < num.size; i++)
 			{
 				int digit = ANS_chr_toint(ANS_getat(&num, i));
 				if (!(digit >= 0 && digit < num.numeral_system))
@@ -318,10 +318,10 @@ bool do_operation(FILE* input_file, FILE* output_file, int operation_counter)
 		}
 
 		// conversion
-		clock_start = clock();
+		clock_start = (float)clock();
 		if (!operation_error)
 			ANS_convert(&num, numeral_system2);
-		clock_end = clock();
+		clock_end = (float)clock();
 
 		elapsed_time = (float)(clock_end - clock_start) / CLOCKS_PER_SEC;
 		printf(" elapsed time: %f seconds.\n", elapsed_time);
