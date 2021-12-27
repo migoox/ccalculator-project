@@ -345,7 +345,7 @@ bool do_operation(FILE* input_file, FILE* output_file, int operation_counter)
 		fprintf(output_file, "\n");
 		strcpy(operation_error_msg, "ERROR: Invalid operation");
 		fprintf(output_file, "%s", operation_error_msg);
-		printf("\nCalculator: Invalid operation sign interrupted further operation.\n");
+		printf("\nCalculator: The program was interrupted by invalid operation sign.\n");
 		// incorrect operation breaks whole loop
 		return false;
 	}

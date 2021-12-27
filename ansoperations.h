@@ -12,6 +12,8 @@ bool ANS_sub(ANS_Num* num1, ANS_Num* num2);
 
 void ANS_mult_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container);
 
+void ANS_slow_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container);
+
 void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container);
 
 void ANS_modulo_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container);

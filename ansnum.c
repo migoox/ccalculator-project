@@ -135,6 +135,14 @@ void ANS_setat(ANS_Num* n, size_t index, char new_digit)
 
 void ANS_push_front(ANS_Num* n, char digit)
 {
+	if(n->size == 0 && n->capacity == 0)
+	{
+		n->size = 1;
+		n->capacity = 1;
+		n->string = (char*)malloc(sizeof(char));
+		n->string[0] = digit;
+		return;
+	}
 	if (n->size + 1 >= n->capacity)
 	{
 		size_t new_capacity = n->capacity + n->capacity / 2 + 1;
@@ -143,7 +151,6 @@ void ANS_push_front(ANS_Num* n, char digit)
 
 		ANS_change_capacity(n, new_capacity);
 	}
-
 	n->string[n->size++] = digit;
 }
 

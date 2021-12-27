@@ -367,11 +367,26 @@ void ANS_pow_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 	ANS_Num inum;
 	ANS_Num helper;
 
-
 	if (num2->size == 1 && num2->string[0] == '0')
 	{
 		// pow with zero exponent returns 1
 		ANS_init_str(container, "1", num1->numeral_system);
+		return;
+	}
+
+	ANS_fix(num1);
+	
+	if (num1->size == 1 && num1->string[0] == '1')
+	{
+		// pow with zero exponent returns 1
+		ANS_init_str(container, "1", num1->numeral_system);
+		return;
+	}
+
+	if (num1->size == 1 && num1->string[0] == '0')
+	{
+		// pow with zero exponent returns 1
+		ANS_init_str(container, "0", num1->numeral_system);
 		return;
 	}
 
@@ -397,7 +412,7 @@ void ANS_pow_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 	ANS_delete(&helper);
 }
 
-void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
+void ANS_slow_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 {
 	assert(num1->numeral_system == num2->numeral_system && "ANS_divide_withc error: cannot add numbers in different numeral systems.");
 
@@ -411,7 +426,6 @@ void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 	ANS_init_str(container, "0", num1->numeral_system);
 	ANS_init_blank(&num1cpy);
 	ANS_cpy(num1, &num1cpy);
-	printf("\n");
 	while (!(num1cpy.size == 1 && num1cpy.string[0] == '0'))
 	{
 		if (ANS_sub(&num1cpy, num2))
@@ -420,27 +434,77 @@ void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 	ANS_delete(&num1cpy);
 }
 
-void ANS_modulo_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
+void ANS_divide_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
 {
 	assert(num1->numeral_system == num2->numeral_system && "ANS_divide_withc error: cannot add numbers in different numeral systems.");
+
 	assert(!(num2->size == 1 && num2->string[0] == '0') && "ANS_divide_withc error: cannot divide by zero.");
 
-	ANS_Num num1cpy;
+	ANS_Num a;
+	ANS_Num b;
+	ANS_Num d;
 
 	if (container->size > 0)
 		ANS_delete(container);
 
 	ANS_init_str(container, "0", num1->numeral_system);
-	ANS_init_blank(&num1cpy);
-	ANS_cpy(num1, &num1cpy);
+	
+	ANS_init_blank(&a);
+	a.numeral_system = num1->numeral_system;
+	ANS_init_blank(&b);
+	b.numeral_system = num1->numeral_system;
+	ANS_init_blank(&d);
+	d.numeral_system = num1->numeral_system;
 
-	while (!(num1cpy.size == 1 && num1cpy.string[0] == '0'))
+	for (int i = num1->size - 1; i >= 0; i--)
 	{
-		if (ANS_sub(&num1cpy, num2))
-		{
-			ANS_cpy(&num1cpy, container);
-		}
-	}
+		ANS_reverse(&a);
 
-	ANS_delete(&num1cpy);
+		ANS_push_front(&a, ANS_getat(num1, i));
+
+		ANS_reverse(&a);
+		ANS_fix(&a);
+
+		ANS_slow_divide_withc(&a, num2, &d);
+		ANS_fix(&d);
+
+		ANS_mult_withc(&d, num2, &b);
+		ANS_fix(&b);
+
+		ANS_sub(&a, &b);
+		ANS_push_front(container, d.string[0]);
+	}
+	ANS_reverse(container);
+	ANS_fix(container);
+
+	ANS_delete(&a);
+	ANS_delete(&b);
+	ANS_delete(&d);
+}
+
+void ANS_modulo_withc(ANS_Num* num1, ANS_Num* num2, ANS_Num* container)
+{
+	assert(num1->numeral_system == num2->numeral_system && "ANS_divide_withc error: cannot add numbers in different numeral systems.");
+	assert(!(num2->size == 1 && num2->string[0] == '0') && "ANS_divide_withc error: cannot divide by zero.");
+
+	ANS_Num division_result;
+	ANS_Num mult_result;
+
+	if (container->size > 0)
+		ANS_delete(container);
+
+	ANS_init_str(container, "0", num1->numeral_system);
+	ANS_init_blank(&division_result);
+	ANS_init_blank(&mult_result);
+	division_result.numeral_system = num1->numeral_system;
+	mult_result.numeral_system = num1->numeral_system;
+
+	ANS_divide_withc(num1, num2, &division_result);
+	ANS_mult_withc(&division_result, num2, &mult_result);
+
+	ANS_cpy(num1, container);
+	ANS_sub(container, &mult_result);
+
+	ANS_delete(&division_result);
+	ANS_delete(&mult_result);
 }
